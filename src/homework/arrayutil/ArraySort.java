@@ -12,7 +12,7 @@ public class ArraySort {
                 }
             }
         }
-        System.out.print (" is the ascending order   ");
+        System.out.print(" is the ascending order   ");
         for (int x = 0; x < numbers.length; x++) {
             System.out.print(numbers[x] + "  ");
         }
@@ -27,7 +27,35 @@ public class ArraySort {
                 }
             }
         }
-        System.out.print (" in descending order ");
+        System.out.print(" in descending order ");
+        for (int x = 0; x < numbers.length; x++) {
+            System.out.print(numbers[x] + "  ");
+        }
+        System.out.println();
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 1; j < numbers.length; j++) {
+                if (numbers[j] > numbers[j - 1]) {
+                    int tmp = numbers[j];
+                    numbers[j] = numbers[j - 1];
+                    numbers[j - 1] = tmp;
+                }
+            }
+        }
+        System.out.print(" in descending order ");
+        for (int x = 0; x < numbers.length; x++) {
+            System.out.print(numbers[x] + "  ");
+        }
+        System.out.println();
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 1; j < numbers.length; j++) {
+                if (numbers[j] < numbers[j - 1]) {
+                    int tmp = numbers[j];
+                    numbers[j] = numbers[j - 1];
+                    numbers[j - 1] = tmp;
+                }
+            }
+        }
+        System.out.print(" in the ascending order ");
         for (int x = 0; x < numbers.length; x++) {
             System.out.print(numbers[x] + "  ");
         }

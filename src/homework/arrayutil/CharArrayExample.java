@@ -1,16 +1,15 @@
 package homework.arrayutil;
-
-public class charArrayExample {
+public class CharArrayExample {
     public static void main(String[] args) {
         char[] chars = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e'};
         char c = 'o';
-        int counOfO = 0;
+        int countOfO = 0;
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] == c) {
-                counOfO++;
+                countOfO++;
             }
         }
-        System.out.println("Quantity of letters 'o'  ->  " + counOfO);
+        System.out.println("Quantity of letters 'o'  ->  " + countOfO);
         char[] chars2 = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e',};
         if (chars2.length % 2 == 0) {
             System.out.print(chars2[chars2.length / 2 - 1]);
@@ -39,11 +38,10 @@ public class charArrayExample {
         } else {
             System.out.println("False");
         }
-
         char[] text = {' ', ' ', 'b', 'a', 'r', 'e', 'v', ' ', ' '};
-        char probel = ' ';
+        char space = ' ';
         for (int i = 0; i < text.length; i++) {
-            if (text[i] != probel) {
+            if (text[i] != space) {
                 System.out.print(text[i]);
             }
         }
