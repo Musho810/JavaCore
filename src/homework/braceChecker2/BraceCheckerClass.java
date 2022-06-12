@@ -4,6 +4,7 @@ public class BraceCheckerClass {
     BraceCheckerClass(String text) {
 
         BraceStack stack = new BraceStack();
+        BraceStack stackforindex=new BraceStack();
 
         boolean noProblem = true;
         int pop;
@@ -14,9 +15,11 @@ public class BraceCheckerClass {
                 case '{':
                 case '[':
                     stack.push(tmp);
+                    stackforindex.push(i);
                     break;
                 case ')':
                     pop = stack.pop();
+                    stackforindex.pop();
                     if (pop == 0) {
                         noProblem = false;
                         System.out.println("Error : You have unopened brackets  " + tmp + "  at  " + i);
@@ -27,6 +30,7 @@ public class BraceCheckerClass {
                     break;
                 case '}':
                     pop = stack.pop();
+                    stackforindex.pop();
                     if (pop == 0) {
                         noProblem = false;
                         System.out.println("Error : You have unopened brackets  " + tmp + "  at  " + i);
@@ -37,6 +41,7 @@ public class BraceCheckerClass {
                     break;
                 case ']':
                     pop = stack.pop();
+                    stackforindex.pop();
                     if (pop == 0) {
                         noProblem = false;
                         System.out.println("Error : You have unopened brackets  " + tmp + "  at  " + i);
@@ -50,7 +55,7 @@ public class BraceCheckerClass {
         int end;
         while ((end = stack.pop()) != 0) {
             noProblem = false;
-            System.out.println("You have unbound brackets  " + (char) end);
+            System.out.println("You have unbound brackets  " + (char) end + stackforindex.pop() );
         }
         if (noProblem) {
             System.out.println("Your text is correctly");
