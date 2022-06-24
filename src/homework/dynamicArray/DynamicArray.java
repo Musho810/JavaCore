@@ -26,16 +26,11 @@ public class DynamicArray {
         array = temp;
     }
 
-    boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+    boolean isEmpty() {return size==0;
     }
 
     int getByIndex(int index) {
-        if (index < size) {
+        if (index < size && index>0) {
             return array[index];
         } else {
             return 0;
