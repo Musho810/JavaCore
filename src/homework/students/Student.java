@@ -77,8 +77,8 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", lesson='" + lesson + '\'' +
                 ", city='" + city + '\'' +
+                ", lesson='" + lesson + '\'' +
                 '}';
     }
 

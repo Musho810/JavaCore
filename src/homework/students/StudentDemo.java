@@ -9,6 +9,9 @@ public class StudentDemo {
     private static StudentStorage studentStorage = new StudentStorage();
 
     public static void main(String[] args) {
+        studentStorage.add(new Student("poxos", "poxosyan", 22, "1111111", "qwerty", "php"));
+        studentStorage.add(new Student("poxos1", "poxosyan1", 2332, "1112221111", "qwerty2", "php"));
+        studentStorage.add(new Student("poxos2", "poxosyan2", 2442, "1111133311", "qwerty3", "php"));
         boolean run = true;
         while (run) {
             System.out.println("please input 0 for exit");
@@ -30,28 +33,16 @@ public class StudentDemo {
                     studentStorage.printArray();
                     break;
                 case 3:
-                    studentStorage.printArray();
-                    System.out.println("please choose student index");
-                    int index = Integer.parseInt(scanner.nextLine());
-                    studentStorage.deleteByIndex(index);
+                    deleteByIndex();
                     break;
                 case 4:
-                    System.out.println("please input lesson name");
-                    String lessonName = scanner.nextLine();
-                    studentStorage.printStudentsByLessonName(lessonName);
+                    printStudentsByLessonName();
                     break;
                 case 5:
-                    System.out.print("Students count : ");
-                    System.out.println(studentStorage.getSize());
+                    System.out.println("Students count : " + studentStorage.getSize());
                     break;
                 case 6:
-                    studentStorage.printArray();
-                    System.out.println("please choose student index");
-                    int studentIndex = Integer.parseInt(scanner.nextLine());
-                    System.out.println("please input lesson name");
-                    String lessonNameChange = scanner.nextLine();
-                    studentStorage.lessonChangeByIndex(studentIndex, lessonNameChange);
-                    studentStorage.printArray();
+                    lessonChangeByIndex();
                     break;
                 default:
                     System.out.println("Invalid command");
@@ -60,6 +51,30 @@ public class StudentDemo {
         }
 
 
+    }
+
+    private static void printStudentsByLessonName() {
+        System.out.println("please input lesson name");
+        String lessonName = scanner.nextLine();
+        studentStorage.printStudentsByLessonName(lessonName);
+    }
+
+    private static void lessonChangeByIndex() {
+        studentStorage.printArray();
+        System.out.println("please choose student index");
+        int studentIndex = Integer.parseInt(scanner.nextLine());
+        System.out.println("please input lesson name");
+        String lessonNameChange = scanner.nextLine();
+        studentStorage.lessonChangeByIndex(studentIndex, lessonNameChange);
+        System.out.println("lesson name changed");
+        studentStorage.printArray();
+    }
+
+    private static void deleteByIndex() {
+        studentStorage.printArray();
+        System.out.println("please choose student index");
+        int index = Integer.parseInt(scanner.nextLine());
+        studentStorage.deleteByIndex(index);
     }
 
     private static void addStudent() {
