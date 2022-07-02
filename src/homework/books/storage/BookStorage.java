@@ -1,4 +1,7 @@
-package homework.books;
+package homework.books.storage;
+
+import homework.books.book.Book;
+import homework.books.commands.BookInterface;
 
 public class BookStorage implements BookInterface {
     private static Book[] array = new Book[10];
@@ -27,13 +30,7 @@ public class BookStorage implements BookInterface {
 
     }
 
-    public void printByAuthor(String authorName) {
-        for (int i = 0; i < size; i++) {
-            if (array[i].getAuthorName().equals(authorName)) {
-                System.out.println(array[i]);
-            }
-        }
-    }
+
 
     public void printByGenre(String genre) {
         for (int i = 0; i < size; i++) {
@@ -46,6 +43,14 @@ public class BookStorage implements BookInterface {
     public void printByPrice(double minprice, double maxprice) {
         for (int i = 0; i < size; i++) {
             if (array[i].getPrice() > minprice && array[i].getPrice() < maxprice) {
+                System.out.println(array[i]);
+            }
+        }
+    }
+
+    public void printByAuthor(String authorName) {
+        for (int i = 0; i <= size; i++) {
+          if ( array[i].getAuthor().getName().equals(authorName)){
                 System.out.println(array[i]);
             }
         }
