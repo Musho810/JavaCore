@@ -1,19 +1,16 @@
-package homework.students.storage;
+package homework.books.storage;
 
-import homework.students.exception.LessonNotFoundException;
-import homework.students.model.Lesson;
+import homework.books.book.User;
 
-
-public class LessonStorage {
-
-    private Lesson[] array = new Lesson[10];
+public class UserStorage {
+    private User[] array = new User[10];
     private int size = 0;
 
-    public void add(Lesson lesson) {
+    public void add(User user) {
         if (size == array.length) {
             increaseArray();
         }
-        array[size++] = lesson;
+        array[size++] = user;
     }
 
 
@@ -24,8 +21,8 @@ public class LessonStorage {
     }
 
     private void increaseArray() {
-        Lesson[] temp = new Lesson[array.length + 10];
-        System.arraycopy(array,0, temp, 0, array.length);
+        User[] temp = new User[array.length + 10];
+        System.arraycopy(array, 0, temp, 0, size);
         array = temp;
     }
 
@@ -44,10 +41,19 @@ public class LessonStorage {
         return size;
     }
 
-    public Lesson getLessonByIndex(int index) throws LessonNotFoundException {
+    public User getUserByIndex(int index) {
         if (index < 0 || index >= size) {
-            throw new LessonNotFoundException("Lesson with " + index + " does not exists");
+            return null;
         }
         return array[index];
+    }
+
+    public User getUserByEmail(String email) {
+        for (int i = 0; i < size; i++) {
+            if (array[i].getEmail().equals(email)) {
+                return array[i];
+            }
+        }
+        return null;
     }
 }

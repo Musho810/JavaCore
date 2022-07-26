@@ -16,15 +16,16 @@ public class FileUtil {
 //        contentSearch();
 //        findLines();
 //        printSizeOfPackage();
-//        createFileWithContent();
-        fileSearchWithRecursion();
+        createFileWithContent();
+//        fileSearchWithRecursion();
     }
 
     static void fileSearch() {
         System.out.println("PLease input Directory path");
-        String path = scanner.nextLine();
+        path = scanner.nextLine();
         System.out.println("Please input File Name");
-        String fileName = scanner.nextLine();
+        fileName = scanner.nextLine();
+
         boolean result = false;
         File file = new File(path);
         if (file.isDirectory()) {
@@ -56,6 +57,8 @@ public class FileUtil {
                         }
                     }
                 }
+            } else {
+                System.out.println("txt files not found");
             }
         }
     }
@@ -65,16 +68,21 @@ public class FileUtil {
         String path = scanner.nextLine();
         System.out.println("Please input keyword");
         String keyword = scanner.nextLine();
-        File file = new File(path);
+//        File file = new File(path);
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
-
+            int linesNumber = 0;
             String symbol = "";
             while ((symbol = bufferedReader.readLine()) != null) {
                 if (symbol.contains(keyword)) {
-                    System.out.println(symbol);
+                    System.out.println("keyword  " + keyword + " in line " + linesNumber);
+                    break;
+                } else {
+                    linesNumber++;
                 }
 
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -99,6 +107,7 @@ public class FileUtil {
         System.out.println("Please input content file");
         String contentFile = scanner.nextLine();
         File file = new File(path, fileName);
+        //Try with recourses
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file.getAbsolutePath()))) {
             bufferedWriter.write(contentFile);
         }
@@ -134,9 +143,9 @@ public class FileUtil {
                 }
             }
         } else {
-           if(file.getName().equals(fileName)) {
-               result = true;
-           }
+            if (file.getName().equals(fileName)) {
+                result = true;
+            }
 
         }
 

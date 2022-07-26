@@ -1,7 +1,7 @@
 package homework.books.commands;
 
 public interface BookInterface {
-    int COMMAND_EXIT = 0;
+    int LOG_OUT = 0;
     int ADD_BOOK = 1;
     int PRINT_ALL = 2;
     int PRINT_BY_AUTHOR = 3;
